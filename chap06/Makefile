@@ -17,3 +17,8 @@ modify_env: ## run modify_env
 	$(call gcc,$(CURRENT_DIR)/modify_env.c)
 	$(call exec,GREET=foo SHELL=/bin/bash BYE=Ciao)
 	$(call exec,SHELL=/bin/sh BYE=byebye)
+
+longjmp: ## run longjmp
+	$(call gcc,$(CURRENT_DIR)/longjmp.c)
+	$(call exec)
+	$(call exec,foo)
