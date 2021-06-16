@@ -22,3 +22,9 @@ longjmp: ## run longjmp
 	$(call gcc,$(CURRENT_DIR)/longjmp.c)
 	$(call exec)
 	$(call exec,foo)
+
+setjmp: ## run setjmp
+	$(call gcc,$(CURRENT_DIR)/setjmp.c)
+	$(call exec)
+	$(call optimized_gcc,$(CURRENT_DIR)/setjmp.c)
+	$(call exec)
