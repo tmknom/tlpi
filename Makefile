@@ -14,6 +14,10 @@ define gcc
 	docker run --rm -w /work -v $(PROJECT_ROOT):/work debian:gcc gcc -lrt -Wall -Og -o $(BINARY_PATH) ${1} $(LIB_PATH)
 endef
 
+define optimized_gcc
+	docker run --rm -w /work -v $(PROJECT_ROOT):/work debian:gcc gcc -lrt -Wall -o $(BINARY_PATH) ${1} $(LIB_PATH)
+endef
+
 define exec
 	docker run -it --rm --cpuset-cpus 0 --cpu-quota 20000 -h localhost -w /work -v $(PROJECT_ROOT):/work debian:gcc $(BINARY_PATH) ${1}
 endef
