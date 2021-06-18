@@ -11,15 +11,15 @@ PROJECT_ROOT := $$(git rev-parse --show-toplevel)
 CURRENT_DIR := $(WORK_PATH)/$(notdir $(CURDIR))
 
 define gcc
-	docker run --rm -w /work -v $(PROJECT_ROOT):/work debian:gcc gcc -lrt -Wall -Og -o $(BINARY_PATH) ${1} $(LIB_PATH)
+	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -Wall -Og -o $(BINARY_PATH) ${1} $(LIB_PATH)
 endef
 
 define optimized_gcc
-	docker run --rm -w /work -v $(PROJECT_ROOT):/work debian:gcc gcc -lrt -Wall -o $(BINARY_PATH) ${1} $(LIB_PATH)
+	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -Wall -o $(BINARY_PATH) ${1} $(LIB_PATH)
 endef
 
 define exec
-	docker run -it --rm --cpuset-cpus 0 --cpu-quota 20000 -h localhost -w /work -v $(PROJECT_ROOT):/work debian:gcc $(BINARY_PATH) ${1}
+	docker run -it --rm --cpuset-cpus 0 --cpu-quota 20000 -h localhost -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc $(BINARY_PATH) ${1}
 endef
 
 # Phony Targets
@@ -39,7 +39,9 @@ run: ## docker run
 lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o error_functions.o error_functions.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o get_num.o get_num.c
-	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o ugid_functions.o ugid_functions.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o curr_time.o curr_time.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o
 	mkdir -p $(PROJECT_ROOT)/bin
 
 # https://postd.cc/auto-documented-makefile/
