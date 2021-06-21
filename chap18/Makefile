@@ -8,3 +8,7 @@ list: ## run list
 	$(call gcc,$(CURRENT_DIR)/list.c)
 	$(call exec,/work/chap18)
 	$(call exec,/work)
+
+nftw: ## run nftw
+	$(call gcc,$(CURRENT_DIR)/nftw.c)
+	$(call exec,/work/chap18)
