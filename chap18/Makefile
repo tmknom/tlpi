@@ -16,3 +16,7 @@ nftw: ## run nftw
 symlink: ## run symlink
 	$(call gcc,$(CURRENT_DIR)/symlink.c)
 	make run
+
+basename: ## run basename
+	$(call gcc,$(CURRENT_DIR)/basename.c)
+	$(call exec,/work/chap18/Makefile)
