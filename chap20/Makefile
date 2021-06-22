@@ -7,3 +7,8 @@ ouch: ## run ouch
 intquit: ## run intquit
 	$(call gcc,$(CURRENT_DIR)/intquit.c)
 	$(call exec)
+
+kill: ## run kill
+	$(call gcc,$(CURRENT_DIR)/kill.c)
+	$(call exec,1 0)
+	$(call exec,2 17)
