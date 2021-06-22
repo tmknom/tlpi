@@ -12,3 +12,7 @@ list: ## run list
 nftw: ## run nftw
 	$(call gcc,$(CURRENT_DIR)/nftw.c)
 	$(call exec,/work/chap18)
+
+symlink: ## run symlink
+	$(call gcc,$(CURRENT_DIR)/symlink.c)
+	make run
