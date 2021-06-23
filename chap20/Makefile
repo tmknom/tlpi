@@ -16,3 +16,7 @@ kill: ## run kill
 sender: ## run sender
 	$(call gcc,$(CURRENT_DIR)/sender.c)
 	make run
+
+receiver: ## run receiver
+	$(call gcc,$(CURRENT_DIR)/receiver.c)
+	make run
