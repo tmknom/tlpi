@@ -42,7 +42,8 @@ lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o ugid_functions.o ugid_functions.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o curr_time.o curr_time.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o file_perms.o file_perms.c
-	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o signal_functions.o signal_functions.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o
 	mkdir -p $(PROJECT_ROOT)/bin
 
 # https://postd.cc/auto-documented-makefile/
