@@ -15,3 +15,7 @@ sigsuspend: ## run sigsuspend
 sigwaitinfo: ## run sigwaitinfo
 	$(call gcc,$(CURRENT_DIR)/sigwaitinfo.c)
 	$(call exec)
+
+signalfd: ## run signalfd
+	$(call gcc,$(CURRENT_DIR)/signalfd.c)
+	$(call exec)
