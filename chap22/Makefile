@@ -11,3 +11,7 @@ catch: ## run catch
 sigsuspend: ## run sigsuspend
 	$(call gcc,$(CURRENT_DIR)/sigsuspend.c)
 	$(call exec)
+
+sigwaitinfo: ## run sigwaitinfo
+	$(call gcc,$(CURRENT_DIR)/sigwaitinfo.c)
+	$(call exec)
