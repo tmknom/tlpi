@@ -7,3 +7,7 @@ sigqueue: ## run sigqueue
 catch: ## run catch
 	$(call gcc,$(CURRENT_DIR)/catch.c)
 	make run
+
+sigsuspend: ## run sigsuspend
+	$(call gcc,$(CURRENT_DIR)/sigsuspend.c)
+	$(call exec)
