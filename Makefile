@@ -11,7 +11,7 @@ PROJECT_ROOT := $$(git rev-parse --show-toplevel)
 CURRENT_DIR := $(WORK_PATH)/$(notdir $(CURDIR))
 
 define gcc
-	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -Wall -Og -o $(BINARY_PATH) ${1} $(LIB_PATH)
+	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -Wall -O0 -g -o $(BINARY_PATH) ${1} $(LIB_PATH)
 endef
 
 define optimized_gcc
@@ -43,7 +43,8 @@ lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o curr_time.o curr_time.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o file_perms.o file_perms.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o signal_functions.o signal_functions.c
-	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o itimerspec_from_str.o itimerspec_from_str.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o itimerspec_from_str.o
 	mkdir -p $(PROJECT_ROOT)/bin
 
 # https://postd.cc/auto-documented-makefile/
