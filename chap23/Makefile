@@ -7,3 +7,7 @@ read: ## run read
 nanosleep: ## run nanosleep
 	$(call gcc,$(CURRENT_DIR)/nanosleep.c)
 	$(call exec,10 0)
+
+signal: ## run signal
+	$(call gcc,$(CURRENT_DIR)/signal.c)
+	$(call exec,2:5)
