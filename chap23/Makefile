@@ -15,3 +15,7 @@ signal: ## run signal
 thread: ## run thread
 	$(call gcc,$(CURRENT_DIR)/thread.c)
 	$(call exec,2:5)
+
+timerfd: ## run timerfd
+	$(call gcc,$(CURRENT_DIR)/timerfd.c)
+	$(call exec,1:1 100)
