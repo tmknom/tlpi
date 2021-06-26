@@ -7,3 +7,7 @@ wait: ## run wait
 status: ## run status
 	$(call gcc,$(CURRENT_DIR)/status.c)
 	$(call exec,23)
+
+zombie: ## run zombie
+	$(call gcc,$(CURRENT_DIR)/zombie.c)
+	$(call exec)
