@@ -11,3 +11,7 @@ status: ## run status
 zombie: ## run zombie
 	$(call gcc,$(CURRENT_DIR)/zombie.c)
 	$(call exec)
+
+sigchld: ## run sigchld
+	$(call gcc,$(CURRENT_DIR)/sigchld.c)
+	$(call exec,1 2 4)
