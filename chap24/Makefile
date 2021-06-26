@@ -7,3 +7,7 @@ fork: ## run fork
 sharing: ## run sharing
 	$(call gcc,$(CURRENT_DIR)/sharing.c)
 	$(call exec)
+
+first: ## run first
+	$(call gcc,$(CURRENT_DIR)/first.c)
+	$(call exec, 3)
