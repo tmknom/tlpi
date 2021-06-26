@@ -11,3 +11,7 @@ sharing: ## run sharing
 first: ## run first
 	$(call gcc,$(CURRENT_DIR)/first.c)
 	$(call exec, 3)
+
+sync: ## run sync
+	$(call gcc,$(CURRENT_DIR)/sync.c)
+	$(call exec)
