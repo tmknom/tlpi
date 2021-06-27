@@ -20,3 +20,8 @@ execle: ## run execle
 execl: ## run execl
 	$(call gcc,$(CURRENT_DIR)/execl.c)
 	$(call exec)
+
+closeonexec: ## run closeonexec
+	$(call gcc,$(CURRENT_DIR)/closeonexec.c)
+	$(call exec)
+	$(call exec,invalid)
