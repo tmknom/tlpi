@@ -7,3 +7,8 @@ acct_on: ## run acct_on
 acct_view: acct_on ## run acct_view
 	$(call gcc,$(CURRENT_DIR)/acct_view.c)
 	make run
+
+clone: ## run clone
+	$(call gcc,$(CURRENT_DIR)/clone.c)
+	$(call exec)
+	$(call exec,x)
