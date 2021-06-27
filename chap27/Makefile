@@ -16,3 +16,7 @@ execlp: ## run execlp
 execle: ## run execle
 	$(call gcc,$(CURRENT_DIR)/execle.c)
 	$(call exec,/bin/echo)
+
+execl: ## run execl
+	$(call gcc,$(CURRENT_DIR)/execl.c)
+	$(call exec)
