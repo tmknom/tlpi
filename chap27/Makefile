@@ -25,3 +25,7 @@ closeonexec: ## run closeonexec
 	$(call gcc,$(CURRENT_DIR)/closeonexec.c)
 	$(call exec)
 	$(call exec,invalid)
+
+system: ## run system
+	$(call gcc,$(CURRENT_DIR)/system.c)
+	$(call exec)
