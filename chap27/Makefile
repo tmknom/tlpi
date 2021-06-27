@@ -12,3 +12,7 @@ execve: envargs ## run execve
 execlp: ## run execlp
 	$(call gcc,$(CURRENT_DIR)/execlp.c)
 	$(call exec,echo)
+
+execle: ## run execle
+	$(call gcc,$(CURRENT_DIR)/execle.c)
+	$(call exec,/bin/echo)
