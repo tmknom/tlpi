@@ -8,3 +8,7 @@ envargs: ## run envargs
 execve: envargs ## run execve
 	$(call gcc,$(CURRENT_DIR)/execve.c)
 	$(call exec,bin/envargs)
+
+execlp: ## run execlp
+	$(call gcc,$(CURRENT_DIR)/execlp.c)
+	$(call exec,echo)
