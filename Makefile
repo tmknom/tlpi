@@ -11,7 +11,7 @@ PROJECT_ROOT := $$(git rev-parse --show-toplevel)
 CURRENT_DIR := $(WORK_PATH)/$(notdir $(CURDIR))
 
 define gcc
-	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -Wall -O0 -g -o $(BINARY_PATH) ${1} $(LIB_PATH)
+	docker run --rm -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc gcc -lrt -pthread -Wall -O0 -g -o $(BINARY_PATH) ${1} $(LIB_PATH)
 endef
 
 define optimized_gcc
@@ -34,7 +34,7 @@ clean: ## Clean
 	rm -f $(PROJECT_ROOT)/lib/*.a
 
 run: ## docker run
-	docker run -it --rm -h localhost --cap-add=SYS_PTRACE --security-opt="seccomp=unconfined" -w /work -v $(PROJECT_ROOT):/work debian:gcc /bin/bash || true
+	docker run -it --rm -h localhost --cap-add=SYS_PTRACE --cap-add=CAP_SYS_PACCT --security-opt="seccomp=unconfined" -w /work -v $(PROJECT_ROOT):/work debian:gcc /bin/bash || true
 
 lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o error_functions.o error_functions.c
