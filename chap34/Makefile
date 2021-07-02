@@ -7,3 +7,7 @@ setsid: ## run setsid
 sighup: ## run sighup
 	$(call gcc,$(CURRENT_DIR)/sighup.c)
 	$(call exec)
+
+disc: ## run disc
+	$(call gcc,$(CURRENT_DIR)/disc.c)
+	$(call exec, d s s)
