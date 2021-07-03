@@ -15,3 +15,7 @@ disc: ## run disc
 mon: ## run mon
 	$(call gcc,$(CURRENT_DIR)/mon.c)
 	$(call exec)
+
+sigtstp: ## run sigtstp
+	$(call gcc,$(CURRENT_DIR)/sigtstp.c)
+	$(call exec)
