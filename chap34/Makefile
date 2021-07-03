@@ -19,3 +19,7 @@ mon: ## run mon
 sigtstp: ## run sigtstp
 	$(call gcc,$(CURRENT_DIR)/sigtstp.c)
 	$(call exec)
+
+orphaned: ## run orphaned
+	$(call gcc,$(CURRENT_DIR)/orphaned.c)
+	$(call exec, s p)
