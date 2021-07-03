@@ -11,3 +11,7 @@ sighup: ## run sighup
 disc: ## run disc
 	$(call gcc,$(CURRENT_DIR)/disc.c)
 	$(call exec, d s s)
+
+mon: ## run mon
+	$(call gcc,$(CURRENT_DIR)/mon.c)
+	$(call exec)
