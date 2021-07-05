@@ -45,7 +45,8 @@ lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o signal_functions.o signal_functions.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o itimerspec_from_str.o itimerspec_from_str.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o print_wait_status.o print_wait_status.c
-	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o itimerspec_from_str.o print_wait_status.o
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o print_rlimit.o print_rlimit.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o itimerspec_from_str.o print_wait_status.o print_rlimit.o
 	mkdir -p $(PROJECT_ROOT)/bin
 
 # https://postd.cc/auto-documented-makefile/
