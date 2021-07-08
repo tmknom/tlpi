@@ -7,3 +7,7 @@ pipe: ## run pipe
 sync: ## run sync
 	$(call gcc,$(CURRENT_DIR)/sync.c)
 	$(call exec,2 4 6)
+
+lswc: ## run lswc
+	$(call gcc,$(CURRENT_DIR)/lswc.c)
+	$(call exec)
