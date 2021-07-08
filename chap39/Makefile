@@ -15,3 +15,10 @@ lswc: ## run lswc
 glob: ## run glob
 	$(call gcc,$(CURRENT_DIR)/glob.c)
 	$(call exec)
+
+fifo: ## run fifo
+	$(call gcc,$(CURRENT_DIR)/fifo_server.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/fifo_server
+	$(call gcc,$(CURRENT_DIR)/fifo_client.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/fifo_client
+	make run
