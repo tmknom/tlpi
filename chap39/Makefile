@@ -11,3 +11,7 @@ sync: ## run sync
 lswc: ## run lswc
 	$(call gcc,$(CURRENT_DIR)/lswc.c)
 	$(call exec)
+
+glob: ## run glob
+	$(call gcc,$(CURRENT_DIR)/glob.c)
+	$(call exec)
