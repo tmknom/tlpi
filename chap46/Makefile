@@ -16,3 +16,7 @@ receive: create send ## run receive
 rm: ## run rm
 	$(call gcc,$(CURRENT_DIR)/rm.c)
 	make run
+
+chqbytes: ## run chqbytes
+	$(call gcc,$(CURRENT_DIR)/chqbytes.c)
+	make run
