@@ -12,3 +12,7 @@ receive: create send ## run receive
 	$(call gcc,$(CURRENT_DIR)/receive.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/svmsg_receive
 	make run
+
+rm: ## run rm
+	$(call gcc,$(CURRENT_DIR)/rm.c)
+	make run
