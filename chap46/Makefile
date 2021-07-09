@@ -20,3 +20,7 @@ rm: ## run rm
 chqbytes: ## run chqbytes
 	$(call gcc,$(CURRENT_DIR)/chqbytes.c)
 	make run
+
+ls: ## run ls
+	$(call gcc,$(CURRENT_DIR)/ls.c)
+	make run
