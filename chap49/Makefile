@@ -7,3 +7,7 @@ cat: ## run cat
 mmap: ## run mmap
 	$(call gcc,$(CURRENT_DIR)/mmap.c)
 	make run
+
+anon: ## run anon
+	$(call gcc,$(CURRENT_DIR)/anon.c)
+	$(call exec)
