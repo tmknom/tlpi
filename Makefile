@@ -19,7 +19,7 @@ define optimized_gcc
 endef
 
 define exec
-	docker run -it --rm --cpuset-cpus 0 --cpu-quota 20000 -h localhost -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc $(BINARY_PATH) ${1}
+	docker run -it --rm --cap-add=ALL --security-opt="seccomp=unconfined" --cpuset-cpus 0 --cpu-quota 20000 -h localhost -w /work -v $(PROJECT_ROOT):/work -u docker debian:gcc $(BINARY_PATH) ${1}
 endef
 
 # Phony Targets
@@ -34,7 +34,7 @@ clean: ## Clean
 	rm -f $(PROJECT_ROOT)/lib/*.a
 
 run: ## docker run
-	docker run -it --rm -h localhost --cap-add=SYS_PTRACE --cap-add=CAP_SYS_PACCT --security-opt="seccomp=unconfined" -w /work -v $(PROJECT_ROOT):/work debian:gcc /bin/bash || true
+	docker run -it --rm -h localhost --cap-add=ALL --security-opt="seccomp=unconfined" -w /work -v $(PROJECT_ROOT):/work debian:gcc /bin/bash || true
 
 lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o error_functions.o error_functions.c
