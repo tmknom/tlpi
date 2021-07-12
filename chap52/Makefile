@@ -21,3 +21,7 @@ receive: ## run receive
 	$(call gcc,$(CURRENT_DIR)/receive.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_receive
 	make run
+
+signal: ## run signal
+	$(call gcc,$(CURRENT_DIR)/signal.c)
+	make run
