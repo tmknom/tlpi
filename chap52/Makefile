@@ -8,3 +8,7 @@ create: ## run create
 getattr: ## run getattr
 	$(call gcc,$(CURRENT_DIR)/getattr.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_getattr
+
+unlink: ## run unlink
+	$(call gcc,$(CURRENT_DIR)/unlink.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_unlink
