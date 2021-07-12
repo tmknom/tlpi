@@ -12,3 +12,7 @@ read: ## run read
 	$(call gcc,$(CURRENT_DIR)/read.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pshm_read
 	make run
+
+unlink: ## run unlink
+	$(call gcc,$(CURRENT_DIR)/unlink.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pshm_unlink
