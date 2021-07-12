@@ -25,3 +25,7 @@ receive: ## run receive
 signal: ## run signal
 	$(call gcc,$(CURRENT_DIR)/signal.c)
 	make run
+
+thread: ## run thread
+	$(call gcc,$(CURRENT_DIR)/thread.c)
+	make run
