@@ -16,3 +16,8 @@ unlink: ## run unlink
 send: ## run send
 	$(call gcc,$(CURRENT_DIR)/send.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_send
+
+receive: ## run receive
+	$(call gcc,$(CURRENT_DIR)/receive.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_receive
+	make run
