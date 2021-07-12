@@ -15,3 +15,7 @@ wait: ## run wait
 post: ## run post
 	$(call gcc,$(CURRENT_DIR)/post.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_post
+
+getvalue: ## run getvalue
+	$(call gcc,$(CURRENT_DIR)/getvalue.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_getvalue
