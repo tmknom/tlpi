@@ -19,3 +19,8 @@ post: ## run post
 getvalue: ## run getvalue
 	$(call gcc,$(CURRENT_DIR)/getvalue.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_getvalue
+
+thread: ## run thread
+	$(call gcc,$(CURRENT_DIR)/thread.c)
+	$(call exec,10000)
+	$(call exec)
