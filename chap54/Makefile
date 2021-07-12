@@ -7,3 +7,8 @@ create: ## run create
 write: ## run write
 	$(call gcc,$(CURRENT_DIR)/write.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pshm_write
+
+read: ## run read
+	$(call gcc,$(CURRENT_DIR)/read.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pshm_read
+	make run
