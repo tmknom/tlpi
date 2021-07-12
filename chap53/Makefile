@@ -7,3 +7,7 @@ create: ## run create
 unlink: ## run unlink
 	$(call gcc,$(CURRENT_DIR)/unlink.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_unlink
+
+wait: ## run wait
+	$(call gcc,$(CURRENT_DIR)/wait.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_wait
