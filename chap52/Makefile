@@ -12,3 +12,7 @@ getattr: ## run getattr
 unlink: ## run unlink
 	$(call gcc,$(CURRENT_DIR)/unlink.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_unlink
+
+send: ## run send
+	$(call gcc,$(CURRENT_DIR)/send.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/pmsg_send
