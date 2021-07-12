@@ -11,3 +11,7 @@ unlink: ## run unlink
 wait: ## run wait
 	$(call gcc,$(CURRENT_DIR)/wait.c)
 	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_wait
+
+post: ## run post
+	$(call gcc,$(CURRENT_DIR)/post.c)
+	cp $(PROJECT_ROOT)/bin/main $(PROJECT_ROOT)/bin/psem_post
