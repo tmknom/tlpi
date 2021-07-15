@@ -48,7 +48,10 @@ lib: clean ## compile lib
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o print_rlimit.o print_rlimit.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o become_daemon.o become_daemon.c
 	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o region_locking.o region_locking.c
-	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o itimerspec_from_str.o print_wait_status.o print_rlimit.o become_daemon.o region_locking.o
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o read_line.o read_line.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o inet_sockets.o inet_sockets.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc gcc -Wall -Og -c -o tty_functions.o tty_functions.c
+	docker run --rm -w /work -v $(PROJECT_ROOT)/lib:/work debian:gcc ar -r libtlpi.a error_functions.o get_num.o ugid_functions.o curr_time.o file_perms.o signal_functions.o itimerspec_from_str.o print_wait_status.o print_rlimit.o become_daemon.o region_locking.o read_line.o inet_sockets.o tty_functions.o
 	mkdir -p $(PROJECT_ROOT)/bin
 
 # https://postd.cc/auto-documented-makefile/
