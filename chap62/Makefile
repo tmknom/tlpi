@@ -11,3 +11,7 @@ no_echo: ## run no_echo
 sigwinch: ## run sigwinch
 	$(call gcc,$(CURRENT_DIR)/sigwinch.c)
 	$(call exec)
+
+tty: ## run tty
+	$(call gcc,$(CURRENT_DIR)/tty.c)
+	make run
