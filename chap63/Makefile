@@ -11,3 +11,7 @@ poll: ## run poll
 sigio: ## run sigio
 	$(call gcc,$(CURRENT_DIR)/sigio.c)
 	$(call exec)
+
+epoll: ## run epoll
+	$(call gcc,$(CURRENT_DIR)/epoll.c)
+	make run
